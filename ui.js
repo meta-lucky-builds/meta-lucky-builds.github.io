@@ -58,7 +58,12 @@
     reveal.append(inner);
 
     const body = el('span', 'project__body');
-    body.append(headline, reveal, el('span', 'project__url', `github.com/${OWNER}/${repo}`));
+    body.append(
+      headline,
+      el('span', 'project__standout', project.standout),
+      reveal,
+      el('span', 'project__url', `github.com/${OWNER}/${repo}`)
+    );
 
     const tags = el('span', 'project__tags');
     (project.tags || []).forEach((name) => tags.append(el('span', 'project__tag', name)));

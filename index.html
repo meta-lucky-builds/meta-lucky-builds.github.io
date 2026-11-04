@@ -23,12 +23,33 @@
     <header class="masthead">
       <div class="masthead__bar">
         <a class="masthead__name" href="https://github.com/meta-lucky-builds" target="_blank" rel="noopener">meta-lucky-builds</a>
-        <span class="masthead__count"><span id="project-count"></span> repositories</span>
+        <span class="masthead__meta">
+          <a class="masthead__why" href="#why">Why I do this</a>
+          <span class="masthead__count"><span id="project-count"></span> repositories</span>
+        </span>
       </div>
       <h1 class="masthead__line">Twelve things I built, and what each one actually showed.</h1>
     </header>
 
     <main>
+      <section class="standout" aria-labelledby="standout-title">
+        <p class="section-label" id="standout-title">Top standout</p>
+        <div class="standout__body">
+          <h2 class="standout__headline"><em>I replicated</em> a published AI result, then found that a one-setting change got most of the same gain.</h2>
+          <p>A published weight edit took a model from 7.9% to 48.1% on MATH-500. I rebuilt it from the authors' logs and got 54.0%, so it holds up. Then I simply turned thinking off, with no edit at all. That reached 48.8% across both benchmarks, about 76% of the edit's gain at about one-seventh of the tokens. The edit still wins at 61.0%, so it is a real improvement, just much smaller than the headline suggests. These were exploratory runs and have not been peer reviewed.</p>
+          <a class="standout__link" href="https://github.com/meta-lucky-builds/stress-testing-weight-space-programming" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="traits" aria-labelledby="traits-title">
+        <p class="section-label" id="traits-title">What sets the work apart</p>
+        <ul class="traits__list" role="list">
+          <li><strong>I commit before I see the data.</strong> Several of these projects were preregistered, including six hypotheses on how networks forget.</li>
+          <li><strong>I publish what failed.</strong> I report when no new method beat a tuned baseline, and when no biology-to-AI mapping was supported.</li>
+          <li><strong>My numbers can check themselves.</strong> In one project, CI recomputes the results table from stored data and fails if the README disagrees.</li>
+        </ul>
+      </section>
+
       <noscript>
         <p class="noscript">This index is drawn with JavaScript. Every repository is on <a href="https://github.com/meta-lucky-builds">github.com/meta-lucky-builds</a>.</p>
       </noscript>
@@ -38,6 +59,26 @@
         <span>Tags</span>
       </div>
       <ol id="projects" role="list" aria-label="Projects"></ol>
+
+      <section class="why" id="why" aria-labelledby="why-title">
+        <p class="section-label">Why</p>
+        <div class="why__body">
+          <h2 class="why__title" id="why-title">Why I do the things I do</h2>
+
+          <h3>The god-tier problem</h3>
+          <p>P vs NP is the god-tier problem, and it is the one I want to solve. It asks whether every problem whose answer can be checked quickly can also be solved quickly. It has been open for more than fifty years. Proving it, yes or no, might be one of the greatest things humanity ever achieves. I have not solved it, and neither has anyone else.</p>
+          <p>The reason I work on AI is that the two feed each other. AI can help us search for ideas and proofs that are out of reach today. And an answer to P vs NP would tell us what search and learning can and cannot do efficiently, which is exactly what we need to know to build even better AI.</p>
+
+          <h3>Why I am pro-AI</h3>
+          <p>I am pro-AI. I think it is one of the most important things humanity has ever built, because it took us into the meta-layer of innovation. For most of history we built tools that assist us. Now we are building something that can help with the act of innovating itself.</p>
+
+          <h3>What worries me about abundance</h3>
+          <p>Tech leaders speak of abundance. But humans never evolved to get everything without spending energy. When the energy we spend gets very low compared with what we get back, I do not think the brain handles it well.</p>
+          <p>This worry is old. Roman writers already complained about it: the poet Juvenal mocked a public that had given up its civic duties for bread and circuses. Historians still argue over how much hedonism had to do with Rome's decline, but the concern was real to the people living through it.</p>
+          <p>Then there is John Calhoun's mouse utopia, Universe 25, begun in 1968. The mice had plenty of food and water, shelter and no predators. The colony grew to about 2,200, then social behaviour broke down, births collapsed and it died out. Mice are not people, and what the experiment means for humans is still disputed, but I take it as a warning.</p>
+          <p>So I want AI to raise what we are able to attempt, and I do not want it to remove the need to attempt anything. P vs NP is the kind of problem worth spending that energy on.</p>
+        </div>
+      </section>
     </main>
 
     <footer class="colophon">
