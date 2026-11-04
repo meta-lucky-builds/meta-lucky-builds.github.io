@@ -1,5 +1,16 @@
 window.PROJECTS = [
   {
+    repo: "auto-sci-harness",
+    lead: "I built",
+    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
+    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court. No real agent has run in it yet.",
+    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
+    outcomeLabel: "Where it stands",
+    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
+    tags: ["research agents", "verification", "systems"],
+    hue: 190
+  },
+  {
     repo: "stress-testing-weight-space-programming",
     lead: "I replicated",
     rest: "a headline claim about AI editing neural network weights, then found a far simpler rival.",
@@ -9,17 +20,6 @@ window.PROJECTS = [
     outcome: "The scores replicate: 54.0% on MATH-500 against the paper's 48.1%, and 68.0% on GSM8K against 67.1%. Thinking off used different settings, so that comparison is not matched. The LLM experiments did not run, and this is exploratory, not peer reviewed.",
     tags: ["replication", "weight edits", "interpretability"],
     hue: 62
-  },
-  {
-    repo: "auto-sci-harness",
-    lead: "I built",
-    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
-    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court.",
-    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
-    outcomeLabel: "Where it stands",
-    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
-    tags: ["research agents", "verification", "systems"],
-    hue: 190
   },
   {
     repo: "flow-policy-noise-carry",
@@ -33,6 +33,17 @@ window.PROJECTS = [
     hue: 214
   },
   {
+    repo: "how-networks-forget",
+    lead: "I caught",
+    rest: "a plain memory probe reporting memory that controlled tests could not find.",
+    standout: "After 5 later tasks, the probe still read 0.49 retained while scoring 0.317 on the trained task and 0.321 on tasks the network never saw. Measured at 2 labelled images per class.",
+    detail: "Six hypotheses on whether forgetting is overwriting or lost access, each committed before its data. The two main experiments took their verdicts from 20 fresh seeds per setting, with constants set blind on separate seeds.",
+    outcomeLabel: "What it showed",
+    outcome: "The gap was 0.41 [0.35, 0.47] on ResNet-18 and Split CIFAR-100. That raises a question about published probe readings without refuting them, and real memory does survive: stronger keys reached 0.39 and 0.54. No biology-to-AI mapping was supported.",
+    tags: ["forgetting", "memory", "preregistered"],
+    hue: 172
+  },
+  {
     repo: "world-model-adaptation-vs-retention",
     lead: "I reproduced",
     rest: "and extended JEPA-TTT, then tested what the paper never reported: what adapting forgets.",
@@ -44,15 +55,15 @@ window.PROJECTS = [
     hue: 118
   },
   {
-    repo: "how-networks-forget",
-    lead: "I caught",
-    rest: "a plain memory probe reporting memory that controlled tests could not find.",
-    standout: "After 5 later tasks, the probe still read 0.49 retained while scoring 0.317 on the trained task and 0.321 on tasks the network never saw. Measured at 2 labelled images per class.",
-    detail: "Six hypotheses on whether forgetting is overwriting or lost access, each committed before its data. The two main experiments took their verdicts from 20 fresh seeds per setting, with constants set blind on separate seeds.",
-    outcomeLabel: "What it showed",
-    outcome: "The gap was 0.41 [0.35, 0.47] on ResNet-18 and Split CIFAR-100. That raises a question about published probe readings without refuting them, and real memory does survive: stronger keys reached 0.39 and 0.54. No biology-to-AI mapping was supported.",
-    tags: ["forgetting", "memory", "preregistered"],
-    hue: 172
+    repo: "physics",
+    lead: "I asked",
+    rest: "171 questions that climb from why glass doors push one way to what a falling notebook falls into.",
+    standout: "One line of questioning became a closed antimatter engine, and my own energy account correctly shows why it can't deliver net work.",
+    detail: "The questions keep their original wording. They run through friction, entropy, relativity, black holes, time loops, Boltzmann brains and whether a thought can be made of atoms. Seven sections and 59 verification scripts back the answers.",
+    outcomeLabel: "Where it stands",
+    outcome: "Every answer carries a label for its support, from Derived and Code to Open and Speculative. Where no proof is possible, the answer says so. It has not been peer reviewed.",
+    tags: ["physics", "black holes", "thought experiments"],
+    hue: 140
   },
   {
     repo: "world-model-adaptation",
@@ -77,17 +88,6 @@ window.PROJECTS = [
     hue: 38
   },
   {
-    repo: "transfer",
-    lead: "I built",
-    rest: "the first stage of a robot arm world model that keeps learning during deployment. Execution unfinished.",
-    standout: "Baseline B1 is coded: LoRA and token-residual adapters, replay, a promotion gate with rollback, six-joint planning and a shadow-mode online loop, tested on CPU against the real predictor code.",
-    detail: "A full mathematical and implementation specification for the SO-101 arm, with a source audit, and working code for its first baseline: a frozen RoboJEPA representation, a servo bridge and persistent adaptation of small layers.",
-    outcomeLabel: "Where it stands",
-    outcome: "Released weights, real data, GPUs and a real arm have not been run yet, so whether adaptation helps on real data is still open. The live robot driver and the recurrent belief are not built.",
-    tags: ["robotics", "world models", "unfinished"],
-    hue: 346
-  },
-  {
     repo: "continual-learning-experiments",
     lead: "I ran",
     rest: "five linked projects on how a learner can keep improving without losing what it knows.",
@@ -97,6 +97,17 @@ window.PROJECTS = [
     outcome: "Most ideas tested lost, and the strongest results explain why. Everything is small: toys, Split-MNIST and Split CIFAR. Nothing has run on a robot.",
     tags: ["continual learning", "memory", "world models"],
     hue: 268
+  },
+  {
+    repo: "transfer",
+    lead: "I built",
+    rest: "the first stage of a robot arm world model that keeps learning during deployment. Execution unfinished.",
+    standout: "Baseline B1 is coded: LoRA and token-residual adapters, replay, a promotion gate with rollback, six-joint planning and a shadow-mode online loop, tested on CPU against the real predictor code.",
+    detail: "A full mathematical and implementation specification for the SO-101 arm, with a source audit, and working code for its first baseline: a frozen RoboJEPA representation, a servo bridge and persistent adaptation of small layers.",
+    outcomeLabel: "Where it stands",
+    outcome: "Released weights, real data, GPUs and a real arm have not been run yet, so whether adaptation helps on real data is still open. The live robot driver and the recurrent belief are not built.",
+    tags: ["robotics", "world models", "unfinished"],
+    hue: 346
   },
   {
     repo: "llm-introspection-probes",
@@ -119,16 +130,5 @@ window.PROJECTS = [
     outcome: "Composed facts told outright reached reworded questions. False recall on look-alike names is unsolved, nothing is confirmed yet, and a ten-night confirmatory run is planned, not done.",
     tags: ["consolidation", "language models", "preregistered"],
     hue: 12
-  },
-  {
-    repo: "physics",
-    lead: "I asked",
-    rest: "171 questions that climb from why glass doors push one way to what a falling notebook falls into.",
-    standout: "One line of questioning became a closed antimatter engine, and my own energy account correctly shows why it can't deliver net work.",
-    detail: "The questions keep their original wording. They run through friction, entropy, relativity, black holes, time loops, Boltzmann brains and whether a thought can be made of atoms. Seven sections and 59 verification scripts back the answers.",
-    outcomeLabel: "Where it stands",
-    outcome: "Every answer carries a label for its support, from Derived and Code to Open and Speculative. Where no proof is possible, the answer says so. It has not been peer reviewed.",
-    tags: ["physics", "black holes", "thought experiments"],
-    hue: 140
   }
 ];
