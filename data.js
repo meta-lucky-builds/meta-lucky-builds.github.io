@@ -22,6 +22,17 @@ window.PROJECTS = [
     hue: 172
   },
   {
+    repo: "world-model-adaptation-vs-retention",
+    lead: "I reproduced",
+    rest: "and extended JEPA-TTT, then tested what the paper never reported: what adapting forgets.",
+    standout: "At x16 updates, AUC passed the paper's on grid (0.773 vs 0.725) and wave (0.767 vs 0.728), on different checkpoints. A frozen-plus-calibrated model nearly matched that on wave (0.757) and scored 0.807 right after the world switched back.",
+    detail: "I found no official code, so I implemented the method from the paper on the Two-Room task, using the public LeWorldModel checkpoint, then added a switch-back test and five further ideas with pass or fail rules set in advance.",
+    outcomeLabel: "What it showed",
+    outcome: "On wave, fine-tuning forgets the old world (0.320 right after switching back) while a small action translator barely does (0.753, against 0.812 frozen). At the paper's own update rate I scored below it, the paper partly reproduced, and the combined model's pass is partly by construction. 3 seeds, one task.",
+    tags: ["reproduction", "world models", "retention"],
+    hue: 118
+  },
+  {
     repo: "flow-policy-noise-carry",
     lead: "I tried",
     rest: "to break a robot-policy idea on a real vision-language-action model, and found a far larger effect.",
@@ -31,17 +42,6 @@ window.PROJECTS = [
     outcome: "The delay reversal was not the planned test, so it is a strong lead to confirm on fresh tasks. This is one checkpoint in simulation and says nothing about real hardware.",
     tags: ["robotics", "flow matching", "benchmarking"],
     hue: 214
-  },
-  {
-    repo: "auto-sci-harness",
-    lead: "I built",
-    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
-    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court.",
-    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
-    outcomeLabel: "Where it stands",
-    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
-    tags: ["research agents", "verification", "systems"],
-    hue: 190
   },
   {
     repo: "falsifiable-dl-math",
@@ -77,17 +77,6 @@ window.PROJECTS = [
     hue: 322
   },
   {
-    repo: "world-model-adaptation-vs-retention",
-    lead: "I reproduced",
-    rest: "and extended JEPA-TTT, then measured what adapting costs a world model in memory.",
-    standout: "At x16 updates, AUC passed the paper's on grid (0.773 vs 0.725) and wave (0.767 vs 0.728), on different checkpoints. At the paper's own update rate I scored below it.",
-    detail: "I found no official code, so I implemented the method from the paper on the Two-Room task, using the public LeWorldModel checkpoint, and added a switch-back test the paper does not report.",
-    outcomeLabel: "What it showed",
-    outcome: "On wave, fine-tuning forgets the old world (0.320 right after switching back) while a small action translator barely does (0.753, against 0.812 frozen). The paper partly reproduced. 3 seeds, one task.",
-    tags: ["reproduction", "world models", "retention"],
-    hue: 118
-  },
-  {
     repo: "llm-introspection-probes",
     lead: "I tested",
     rest: "whether a model naming an injected concept is introspection or something simpler.",
@@ -110,6 +99,17 @@ window.PROJECTS = [
     hue: 12
   },
   {
+    repo: "auto-sci-harness",
+    lead: "I built",
+    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
+    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court.",
+    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
+    outcomeLabel: "Where it stands",
+    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
+    tags: ["research agents", "verification", "systems"],
+    hue: 190
+  },
+  {
     repo: "physics",
     lead: "I asked",
     rest: "171 questions about how the world works and answered each with a proof, a derivation or code.",
@@ -122,13 +122,13 @@ window.PROJECTS = [
   },
   {
     repo: "transfer",
-    lead: "I specified",
-    rest: "a robot arm world model that keeps learning during deployment, down to the mathematics.",
-    standout: "A full mathematical and implementation specification for the SO-101 arm, with a source audit and numerical checks of its invariants.",
-    detail: "A frozen RoboJEPA representation, a recurrent probabilistic state estimator and persistent replay-based adaptation of small predictor modules, with state inference and parameter learning on separate clocks.",
+    lead: "I built",
+    rest: "the first stage of a robot arm world model that keeps learning during deployment. Execution unfinished.",
+    standout: "Baseline B1 is coded: LoRA and token-residual adapters, replay, a promotion gate with rollback, six-joint planning and a shadow-mode online loop, tested on CPU against the real predictor code.",
+    detail: "A full mathematical and implementation specification for the SO-101 arm, with a source audit, and working code for its first baseline: a frozen RoboJEPA representation, a servo bridge and persistent adaptation of small layers.",
     outcomeLabel: "Where it stands",
-    outcome: "This is a proposed specification, not a trained or robot-validated system. The checks cover selected math invariants, not robot performance.",
-    tags: ["robotics", "world models", "specification"],
+    outcome: "Released weights, real data, GPUs and a real arm have not been run yet, so whether adaptation helps on real data is still open. The live robot driver and the recurrent belief are not built.",
+    tags: ["robotics", "world models", "unfinished"],
     hue: 346
   }
 ];
