@@ -438,6 +438,32 @@ a {
   color: var(--bone-dim);
 }
 
+.build-note {
+  max-width: 40rem;
+  margin: 1.75rem 0 0;
+  margin-left: calc(3.75rem + var(--col-gap));
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--sage);
+}
+
+.build-note strong {
+  font-weight: 500;
+  color: var(--bone);
+}
+
+@media (max-width: 960px) {
+  .build-note {
+    margin-left: calc(3rem + var(--col-gap));
+  }
+}
+
+@media (max-width: 640px) {
+  .build-note {
+    margin-left: 0;
+  }
+}
+
 /* ---------- Standout, traits and why: same left edge as the rows ---------- */
 
 html {

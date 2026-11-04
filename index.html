@@ -28,15 +28,15 @@
           <span class="masthead__count"><span id="project-count"></span> repositories</span>
         </span>
       </div>
-      <h1 class="masthead__line">Twelve things I built, and what each one actually showed.</h1>
+      <h1 class="masthead__line">Twelve research projects: what I built, what I tested and what I found. Listed strongest first, by my own judgment.</h1>
     </header>
 
     <main>
       <section class="standout" aria-labelledby="standout-title">
         <p class="section-label" id="standout-title">Top standout</p>
         <div class="standout__body">
-          <h2 class="standout__headline"><em>I replicated</em> a published AI result, then found that a one-setting change got most of the same gain.</h2>
-          <p>A published weight edit took a model from 7.9% to 48.1% on MATH-500. I rebuilt it from the authors' logs and got 54.0%, so it holds up. Then I simply turned thinking off, with no edit at all. That reached 48.8% across both benchmarks, about 76% of the edit's gain at about one-seventh of the tokens. The edit still wins at 61.0%, so it is a real improvement, just much smaller than the headline suggests. These were exploratory runs and have not been peer reviewed.</p>
+          <h2 class="standout__headline"><em>I replicated</em> a headline AI result, then found a far simpler route to most of the same gain.</h2>
+          <p>Researchers reported that GPT-6 Astra could edit a model's weights directly, taking it from 7.9% to 48.1% on MATH-500. I rebuilt the edit from their published logs and scored 54.0%, so the result holds up. Then I turned the model's thinking off, with no edit at all. Across both benchmarks that reached 48.8%, about 76% of the edit's gain at about one-seventh of the tokens. The edit still wins at 61.0%, so it is a real improvement, just much smaller than the headline jump suggests. Thinking off used the model card's own settings, so the comparison is not perfectly matched. These were exploratory runs and have not been peer reviewed.</p>
           <a class="standout__link" href="https://github.com/meta-lucky-builds/stress-testing-weight-space-programming" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -44,9 +44,9 @@
       <section class="traits" aria-labelledby="traits-title">
         <p class="section-label" id="traits-title">What sets the work apart</p>
         <ul class="traits__list" role="list">
-          <li><strong>I commit before I see the data.</strong> Several of these projects were preregistered, including six hypotheses on how networks forget.</li>
-          <li><strong>I publish what failed.</strong> I report when no new method beat a tuned baseline, and when no biology-to-AI mapping was supported.</li>
-          <li><strong>My numbers can check themselves.</strong> In one project, CI recomputes the results table from stored data and fails if the README disagrees.</li>
+          <li><strong>I commit before I see the data.</strong> Most of these projects set their hypotheses, kill criteria or decision rules in advance. In one, 9 of 14 scored hypotheses were killed by their own criteria.</li>
+          <li><strong>I publish what failed.</strong> I report when no new method beat a tuned baseline, when no biology-to-AI mapping was supported, and when a fresh re-implementation flipped my own conclusions.</li>
+          <li><strong>My numbers can check themselves.</strong> In several projects, tests or CI fail if the headline numbers stop matching the stored results.</li>
         </ul>
       </section>
 
@@ -59,6 +59,8 @@
         <span>Tags</span>
       </div>
       <ol id="projects" role="list" aria-label="Projects"></ol>
+
+      <p class="build-note"><strong>How this was built.</strong> Claude Code was used for building and coding in these repositories. The one exception is physics, where I asked all 171 questions myself and Claude was used for citations, formatting and code execution. This website was built with Claude Code too.</p>
 
       <section class="why" id="why" aria-labelledby="why-title">
         <p class="section-label">Why</p>
