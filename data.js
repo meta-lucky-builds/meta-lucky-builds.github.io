@@ -33,6 +33,17 @@ window.PROJECTS = [
     hue: 118
   },
   {
+    repo: "auto-sci-harness",
+    lead: "I built",
+    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
+    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court.",
+    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
+    outcomeLabel: "Where it stands",
+    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
+    tags: ["research agents", "verification", "systems"],
+    hue: 190
+  },
+  {
     repo: "flow-policy-noise-carry",
     lead: "I tried",
     rest: "to break a robot-policy idea on a real vision-language-action model, and found a far larger effect.",
@@ -88,6 +99,17 @@ window.PROJECTS = [
     hue: 96
   },
   {
+    repo: "transfer",
+    lead: "I built",
+    rest: "the first stage of a robot arm world model that keeps learning during deployment. Execution unfinished.",
+    standout: "Baseline B1 is coded: LoRA and token-residual adapters, replay, a promotion gate with rollback, six-joint planning and a shadow-mode online loop, tested on CPU against the real predictor code.",
+    detail: "A full mathematical and implementation specification for the SO-101 arm, with a source audit, and working code for its first baseline: a frozen RoboJEPA representation, a servo bridge and persistent adaptation of small layers.",
+    outcomeLabel: "Where it stands",
+    outcome: "Released weights, real data, GPUs and a real arm have not been run yet, so whether adaptation helps on real data is still open. The live robot driver and the recurrent belief are not built.",
+    tags: ["robotics", "world models", "unfinished"],
+    hue: 346
+  },
+  {
     repo: "sleep",
     lead: "I tested",
     rest: "whether a small language model can consolidate new facts offline without destroying what it knows.",
@@ -99,17 +121,6 @@ window.PROJECTS = [
     hue: 12
   },
   {
-    repo: "auto-sci-harness",
-    lead: "I built",
-    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
-    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court.",
-    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
-    outcomeLabel: "Where it stands",
-    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
-    tags: ["research agents", "verification", "systems"],
-    hue: 190
-  },
-  {
     repo: "physics",
     lead: "I asked",
     rest: "171 questions about how the world works and answered each with a proof, a derivation or code.",
@@ -119,16 +130,5 @@ window.PROJECTS = [
     outcome: "Every answer carries a label for its support, from Derived and Code to Open and Speculative. It has not been peer reviewed.",
     tags: ["physics", "derivations", "first principles"],
     hue: 140
-  },
-  {
-    repo: "transfer",
-    lead: "I built",
-    rest: "the first stage of a robot arm world model that keeps learning during deployment. Execution unfinished.",
-    standout: "Baseline B1 is coded: LoRA and token-residual adapters, replay, a promotion gate with rollback, six-joint planning and a shadow-mode online loop, tested on CPU against the real predictor code.",
-    detail: "A full mathematical and implementation specification for the SO-101 arm, with a source audit, and working code for its first baseline: a frozen RoboJEPA representation, a servo bridge and persistent adaptation of small layers.",
-    outcomeLabel: "Where it stands",
-    outcome: "Released weights, real data, GPUs and a real arm have not been run yet, so whether adaptation helps on real data is still open. The live robot driver and the recurrent belief are not built.",
-    tags: ["robotics", "world models", "unfinished"],
-    hue: 346
   }
 ];
