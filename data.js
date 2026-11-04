@@ -55,6 +55,17 @@ window.PROJECTS = [
     hue: 214
   },
   {
+    repo: "physics",
+    lead: "I asked",
+    rest: "171 questions that climb from why glass doors push one way to what a falling notebook falls into.",
+    standout: "One line of questioning became a closed antimatter engine, and my own energy account correctly shows why it can't deliver net work.",
+    detail: "The questions keep their original wording. They run through friction, entropy, relativity, black holes, time loops, Boltzmann brains and whether a thought can be made of atoms. Seven sections and 59 verification scripts back the answers.",
+    outcomeLabel: "Where it stands",
+    outcome: "Every answer carries a label for its support, from Derived and Code to Open and Speculative. Where no proof is possible, the answer says so. It has not been peer reviewed.",
+    tags: ["physics", "black holes", "thought experiments"],
+    hue: 140
+  },
+  {
     repo: "falsifiable-dl-math",
     lead: "I traced",
     rest: "a transformer's collapse past its training length from suspected bug to measured mechanism.",
@@ -119,16 +130,5 @@ window.PROJECTS = [
     outcome: "Composed facts told outright reached reworded questions. False recall on look-alike names is unsolved, nothing is confirmed yet, and a ten-night confirmatory run is planned, not done.",
     tags: ["consolidation", "language models", "preregistered"],
     hue: 12
-  },
-  {
-    repo: "physics",
-    lead: "I asked",
-    rest: "171 questions about how the world works and answered each with a proof, a derivation or code.",
-    standout: "From doors and friction to black holes, a closed antimatter cycle and time travel. Where no proof is possible, the answer says so.",
-    detail: "Seven sections and 59 verification scripts. One command confirms every question has an answer and runs every script.",
-    outcomeLabel: "Where it stands",
-    outcome: "Every answer carries a label for its support, from Derived and Code to Open and Speculative. It has not been peer reviewed.",
-    tags: ["physics", "derivations", "first principles"],
-    hue: 140
   }
 ];
