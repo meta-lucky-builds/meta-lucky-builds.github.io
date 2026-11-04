@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>meta-lucky-builds</title>
+  <meta name="description" content="Twelve research repositories by meta-lucky-builds, each listed with what it actually showed or where it stands.">
+  <meta name="theme-color" content="#0c1518">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1518'/%3E%3Cg fill='none' stroke='%23e8e2d4' stroke-width='1.5'%3E%3Cellipse cx='16' cy='17' rx='11.5' ry='8.5' opacity='.45'/%3E%3Cellipse cx='16.5' cy='17.5' rx='7' ry='5' opacity='.7'/%3E%3Cellipse cx='17' cy='18' rx='2.5' ry='1.75'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="field.js" defer></script>
+  <script src="ui.js" defer></script>
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="masthead">
+      <div class="masthead__bar">
+        <a class="masthead__name" href="https://github.com/meta-lucky-builds" target="_blank" rel="noopener">meta-lucky-builds</a>
+        <span class="masthead__count"><span id="project-count"></span> repositories</span>
+      </div>
+      <h1 class="masthead__line">Twelve things I built, and what each one actually showed.</h1>
+    </header>
+
+    <main>
+      <noscript>
+        <p class="noscript">This index is drawn with JavaScript. Every repository is on <a href="https://github.com/meta-lucky-builds">github.com/meta-lucky-builds</a>.</p>
+      </noscript>
+      <div class="index-head" aria-hidden="true">
+        <span>No.</span>
+        <span>Note</span>
+        <span>Tags</span>
+      </div>
+      <ol id="projects" role="list" aria-label="Projects"></ol>
+    </main>
+
+    <footer class="colophon">
+      <span>End of index</span>
+      <a class="colophon__link" href="https://github.com/meta-lucky-builds" target="_blank" rel="noopener">github.com/meta-lucky-builds</a>
+    </footer>
+  </div>
+
+  <div id="cursor-tag" aria-hidden="true">Open repo</div>
+</body>
+</html>
