@@ -593,6 +593,32 @@ html {
   margin-top: 0.75rem;
 }
 
+.exchange {
+  max-width: 48rem;
+  margin: 2rem 0 0;
+}
+
+.exchange img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+}
+
+.exchange figcaption {
+  margin-top: 0.625rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.exchange a {
+  color: var(--sage);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 @media (max-width: 960px) {
   .standout,
   .traits,
