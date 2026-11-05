@@ -2,11 +2,11 @@ window.PROJECTS = [
   {
     repo: "auto-sci-harness",
     lead: "I built",
-    rest: "a system where an AI agent can write the code and make the claim, but cannot sign the certificate.",
+    rest: "a harness for research and discovery, designed to improve itself, where an AI agent can make a claim but cannot sign the certificate.",
     standout: "Agents explore freely in a Lab, then a Court re-runs their frozen code on data held back from them, and ten mechanical checks decide whether the claim holds. No model can grant a pass.",
     detail: "Each Court version must first get 11 planted claims right, including leaks, p-hacking and sabotaged baselines. That exam caught a real hole in my own system, a strawman baseline certified as VALIDATED, and I closed it. An attack museum records 65 findings against the checker: 51 fixed, 13 accepted as stated limits, 1 open.",
     outcomeLabel: "Where it stands",
-    outcome: "Experimental, not production-grade. It has been used locally for research runs, and the first certified result is the next milestone.",
+    outcome: "Experimental, not production-grade. It has been used locally for research runs, and the first certified result is the next milestone. The self-improvement loop is experimental and has not yet shown an improvement.",
     tags: ["research agents", "verification", "systems"],
     hue: 190
   },
