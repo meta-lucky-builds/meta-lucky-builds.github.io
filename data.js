@@ -46,11 +46,11 @@ window.PROJECTS = [
   {
     repo: "world-model-adaptation-vs-retention",
     lead: "I reproduced",
-    rest: "and extended JEPA-TTT, then tested what the paper never reported: what adapting forgets.",
-    standout: "At x16 updates, AUC passed the paper's on grid (0.773 vs 0.725) and wave (0.767 vs 0.728), on different checkpoints. A frozen-plus-calibrated model nearly matched that on wave (0.757) and scored 0.807 right after the world switched back.",
-    detail: "I found no official code, so I implemented the method from the paper on the Two-Room task, using the public LeWorldModel checkpoint, then added a switch-back test and five further ideas with pass or fail rules set in advance.",
+    rest: "and extended JEPA-TTT, passed its published scores, and designed a version that barely forgets.",
+    standout: "On the paper's evaluation schedule, x16 updates passed its AUC on grid (0.755 vs 0.725) and wave (0.773 vs 0.728), on different checkpoints. On wave, my before-plus-now design reached 0.757 and scored 0.807 right after the world switched back, where x16 fell to 0.320.",
+    detail: "I found no official code, so I implemented the method from the paper on the Two-Room task, using the public LeWorldModel checkpoint. I then added a switch-back test the paper does not report and five further ideas with pass or fail rules set in advance.",
     outcomeLabel: "What it showed",
-    outcome: "On wave, fine-tuning forgets the old world (0.320 right after switching back) while a small action translator barely does (0.753, against 0.812 frozen). At the paper's own update rate I scored below it, the paper partly reproduced, and the combined model's pass is partly by construction. 3 seeds, one task.",
+    outcome: "On wave, adapting and remembering pull apart, and keeping the predictor frozen while learning a small action translator holds on to the old world (0.812 for the frozen model). At the paper's own update rate I scored below it, and before-plus-now adapts more slowly on grid (0.676). Its AUC is only roughly comparable and its pass is partly by construction. 3 seeds, one task.",
     tags: ["reproduction", "world models", "retention"],
     hue: 118
   },
