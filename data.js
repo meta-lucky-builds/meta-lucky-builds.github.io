@@ -2,11 +2,11 @@ window.PROJECTS = [
   {
     repo: "auto-sci-harness",
     lead: "I built",
-    rest: "an autonomous research system designed so its claims have to pass a mechanical checker.",
-    standout: "At its centre is an Evidence Kernel of about 4,000 lines with 100% line and branch coverage, plus sandboxed agent labs and an audit court. No real agent has run in it yet.",
-    detail: "Like a Lean for scientific claims: the Kernel checks whether a claim was stated precisely, committed to before the data, tested in a way that could have failed, reproduced from raw artifacts and confirmed on untouched data.",
+    rest: "a system where an AI agent can write the code and make the claim, but cannot sign the certificate.",
+    standout: "Agents explore freely in a Lab, then a Court re-runs their frozen code on data held back from them, and ten mechanical checks decide whether the claim holds. No model can grant a pass.",
+    detail: "Each Court version must first get 11 planted claims right, including leaks, p-hacking and sabotaged baselines, before it can register a minted or sealed case. An attack museum records 65 findings against the checker: 51 fixed, 13 accepted as stated limits, 1 open.",
     outcomeLabel: "Where it stands",
-    outcome: "The court-v1 code passed a full gate of 3,825 tests; later changes have had no full gate. No real agent has run in a real Lab box yet, so there are zero certified discoveries so far.",
+    outcome: "Experimental, not production-grade. It has been used locally for research runs, and the first certified result is the next milestone.",
     tags: ["research agents", "verification", "systems"],
     hue: 190
   },
