@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>meta-lucky-builds</title>
-  <meta name="description" content="Twelve research repositories by meta-lucky-builds, each listed with what it actually showed or where it stands.">
+  <meta name="description" content="Thirteen research projects by meta-lucky-builds, each listed with what it actually showed or where it stands.">
   <meta name="theme-color" content="#0c1518">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1518'/%3E%3Cg fill='none' stroke='%23e8e2d4' stroke-width='1.5'%3E%3Cellipse cx='16' cy='17' rx='11.5' ry='8.5' opacity='.45'/%3E%3Cellipse cx='16.5' cy='17.5' rx='7' ry='5' opacity='.7'/%3E%3Cellipse cx='17' cy='18' rx='2.5' ry='1.75'/%3E%3C/g%3E%3C/svg%3E">
@@ -28,10 +28,18 @@
           <span class="masthead__count"><span id="project-count"></span> repositories</span>
         </span>
       </div>
-      <h1 class="masthead__line">Twelve research projects: what I built, what I tested and what I found.</h1>
+      <h1 class="masthead__line">Thirteen research projects: what I built, what I tested and what I found.</h1>
     </header>
 
     <main>
+      <section class="origin" aria-labelledby="origin-title">
+        <p class="section-label" id="origin-title">How this started</p>
+        <div class="origin__body">
+          <p>When my high school shut down near the end of junior year, all my friends joined another high school. I decided to stay home and dedicate myself full time to research, which produced most of these projects. I was already researching before that, and I enrolled elsewhere only to sit my exams.</p>
+          <p>No lab, no mentor, no advisor, no funding, no university affiliation, no professor's help. Just me, my laptop and LLMs, plus GPUs I rented when an experiment needed them.</p>
+        </div>
+      </section>
+
       <section class="standout" aria-labelledby="standout-title">
         <p class="section-label" id="standout-title">Top standout</p>
         <div class="standout__body">
@@ -60,7 +68,7 @@
       </div>
       <ol id="projects" role="list" aria-label="Projects"></ol>
 
-      <p class="build-note"><strong>How this was built.</strong> I come up with my own hypotheses, make the decisions and design most of the experiments. I stress-test each design for edge cases with Claude and improve it iteratively. Claude Code did most of the implementation and helped with execution and review. In physics, I asked all 171 questions myself, and Claude was used for citations, formatting and code execution.</p>
+      <p class="build-note"><strong>How this was built.</strong> I come up with my own hypotheses, make the decisions and design most of the experiments. I stress-test each design for edge cases with Claude and improve it iteratively. Claude Code did most of the implementation and helped with execution and review. In physics, I asked all 171 questions myself, and Claude was used for citations, formatting and code execution. In the hard-problem paper, Claude was used in reviewing and helping execute tests, and I hold the responsibility for it.</p>
 
       <section class="why" id="why" aria-labelledby="why-title">
         <p class="section-label">Why</p>
@@ -79,6 +87,21 @@
           <p>This worry is old. Roman writers already complained about it: the poet Juvenal mocked a public that had given up its civic duties for bread and circuses. Historians still argue over how much hedonism had to do with Rome's decline, but the concern was real to the people living through it.</p>
           <p>Then there is John Calhoun's mouse utopia, Universe 25, begun in 1968. The mice had plenty of food and water, shelter and no predators. The colony grew to about 2,200, then social behaviour broke down, births collapsed and it died out. Mice are not people, and what the experiment means for humans is still disputed, but I take it as a warning.</p>
           <p>So I do not think the answer is to stop AI from taking our work. If abundance comes, I would rather change the side that cannot keep up. I want us to explore gene editing, and to use advancing AI itself, to reach a day when we can program the human brain safely. Nobody can do that today, and "safely" is the hardest word in that sentence.</p>
+        </div>
+      </section>
+
+      <section class="why" id="generalisation" aria-labelledby="generalisation-title">
+        <p class="section-label">A conversation</p>
+        <div class="why__body">
+          <h2 class="why__title" id="generalisation-title">A researcher in the field called my point on generalisation very interesting</h2>
+
+          <p>On one of Yacine Mahdid's videos, I argued that the brain never separates inference from training. It keeps predicting the next few milliseconds, and a large error fixes its representations on the fly. It also has to compress lossily. If I had only ever seen brown dogs, the first black dog should erase that criterion and make room for every other kind. Keep a separate model of each dog and the brain's efficiency is gone.</p>
+          <p>Yacine, a computational neuroscientist who runs the channel Deep Learning with Yacine, replied "very interesting point you are putting together here" and built on it: the brain is made of many independent units, so it can lose a large part of itself and keep learning, which is very hard to reproduce in silico.</p>
+
+          <figure class="exchange">
+            <img src="images/yacine-reply.png" width="955" height="513" loading="lazy" alt="YouTube comment by Luckylearning arguing that the brain has no separation between inference and training and must compress lossily, with a highlighted reply from deeplearningexplained beginning: very interesting point you are putting together here.">
+            <figcaption>The exchange, from the comments on What Continual Learning Actually Means. <a href="https://www.youtube.com/watch?v=loXZk5uYWLE&amp;lc=UgxizNQGIPWgTTSXVyp4AaABAg.AbtLoNZMLV3AcaoKbyh46f" target="_blank" rel="noopener">See the original comment and reply on YouTube</a>.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -102,6 +125,6 @@
     </footer>
   </div>
 
-  <div id="cursor-tag" aria-hidden="true">Open repo</div>
+  <div id="cursor-tag" aria-hidden="true">Open</div>
 </body>
 </html>
