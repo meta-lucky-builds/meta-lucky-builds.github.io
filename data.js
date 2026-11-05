@@ -33,6 +33,19 @@ window.PROJECTS = [
     hue: 214
   },
   {
+    repo: "attempt-at-the-hard-problem",
+    url: "https://meta-lucky-builds.github.io/attempt-at-the-hard-problem/",
+    urlLabel: "meta-lucky-builds.github.io/attempt-at-the-hard-problem",
+    lead: "I wrote",
+    rest: "a formal framework for what it means for a mind or machine to access information, as an attempt at the hard problem.",
+    standout: "Twenty propositions and three corollaries, used to work through fifty problems from psychophysics, neurology, psychiatry, philosophy and machine learning. It defines access as causal use and separates a true workspace from a mere relay. It does not derive feeling from function.",
+    detail: "Top features: rival theories get one shared vocabulary to disagree in. Decoding a content is shown to be neither sufficient nor, measured marginally, necessary for its use, and calling a system optimal says nothing without an independently measured loss. It gives testable consequences, including log-error conservation and exclusion thresholds, plus rules for when to abandon a line of theory.",
+    outcomeLabel: "What it explains",
+    outcome: "Within a stated model: limited simultaneous precision, the direction of perceptual-load effects and extinction, when serial access beats sharing, confidence changing without accuracy. As possible mechanisms: blindsight, masking, the attentional blink, sleep and anesthesia, split-brain results. Not explained: why any organization feels, why red looks like this, whether zombies are possible, whether current AI has a workspace. No experiment has tested it, some accounts already meet evidence that complicates them, and it has not been peer reviewed.",
+    tags: ["consciousness", "theory", "causal inference"],
+    hue: 295
+  },
+  {
     repo: "how-networks-forget",
     lead: "I caught",
     rest: "a plain memory probe reporting memory that controlled tests could not find.",

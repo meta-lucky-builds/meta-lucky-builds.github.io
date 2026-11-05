@@ -41,7 +41,7 @@
     hues.set(li, project.hue);
 
     const link = el('a', 'project__link');
-    link.href = `https://github.com/${OWNER}/${encodeURIComponent(repo)}`;
+    link.href = project.url || `https://github.com/${OWNER}/${encodeURIComponent(repo)}`;
     link.target = '_blank';
     link.rel = 'noopener';
 
@@ -62,7 +62,7 @@
       headline,
       el('span', 'project__standout', project.standout),
       reveal,
-      el('span', 'project__url', `github.com/${OWNER}/${repo}`)
+      el('span', 'project__url', project.urlLabel || `github.com/${OWNER}/${repo}`)
     );
 
     const tags = el('span', 'project__tags');
