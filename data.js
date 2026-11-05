@@ -46,7 +46,7 @@ window.PROJECTS = [
   {
     repo: "world-model-adaptation-vs-retention",
     lead: "I reproduced",
-    rest: "and extended JEPA-TTT, passed its published scores, and designed a version that barely forgets.",
+    rest: "and extended JEPA-TTT, passed its published AUC at a higher update rate, and designed a version that holds on to the old world on one shift.",
     standout: "On the paper's evaluation schedule, x16 updates passed its AUC on grid (0.755 vs 0.725) and wave (0.773 vs 0.728), on different checkpoints. On wave, my before-plus-now design reached 0.757 and scored 0.807 right after the world switched back, where x16 fell to 0.320.",
     detail: "I found no official code, so I implemented the method from the paper on the Two-Room task, using the public LeWorldModel checkpoint. I then added a switch-back test the paper does not report and five further ideas with pass or fail rules set in advance.",
     outcomeLabel: "What it showed",
@@ -79,7 +79,7 @@ window.PROJECTS = [
   {
     repo: "falsifiable-dl-math",
     lead: "I traced",
-    rest: "a transformer's collapse past its training length from suspected bug to measured mechanism, and found one change that removes it.",
+    rest: "a transformer's collapse past its training length from suspected bug to measured mechanism, and found a change that removes it in a toy run.",
     standout: "Loss jumps from 1.48 to about 5 bits per byte, and removing the far tokens from attention brings it back to 1.49. ALiBi stayed flat to 8x training length. Toy run, 2 seeds.",
     detail: "Eight hypotheses on the math of deep learning, with derivations, numeric checks and kill criteria set before the runs (one closed-form check is the exception), including exact identities for Adam's epsilon. My mistakes stay on the record.",
     outcomeLabel: "What it showed",
