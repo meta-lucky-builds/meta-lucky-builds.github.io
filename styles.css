@@ -593,6 +593,44 @@ html {
   margin-top: 0.75rem;
 }
 
+.origin {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  margin-top: calc(-1 * clamp(1.5rem, 5vw, 4rem));
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.origin > .section-label,
+.origin__body {
+  grid-column: 2;
+}
+
+.origin__body p {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  line-height: 1.5;
+  color: var(--bone);
+}
+
+@media (max-width: 960px) {
+  .origin {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .origin {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .origin > .section-label,
+  .origin__body {
+    grid-column: 1;
+  }
+}
+
 .exchange {
   max-width: 48rem;
   margin: 2rem 0 0;
