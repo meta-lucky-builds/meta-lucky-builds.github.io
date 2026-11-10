@@ -805,6 +805,45 @@ html {
   text-underline-offset: 0.2em;
 }
 
+.timeline__list {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 0 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.timeline__when {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+
+.timeline__what {
+  font-size: 1.0313rem;
+  line-height: 1.55;
+  color: var(--sage);
+}
+
+.timeline__fig {
+  max-width: 22rem;
+}
+
+@media (max-width: 640px) {
+  .timeline__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+}
+
 /* ---------- Cursor tag: ui.js owns its transform ---------- */
 
 #cursor-tag {
