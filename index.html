@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>meta-lucky-builds</title>
-  <meta name="description" content="Thirteen research projects by meta-lucky-builds, each listed with what it actually showed or where it stands.">
+  <meta name="description" content="Fourteen research projects by meta-lucky-builds, each listed with what it actually showed or where it stands.">
   <meta name="theme-color" content="#0c1518">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1518'/%3E%3Cg fill='none' stroke='%23e8e2d4' stroke-width='1.5'%3E%3Cellipse cx='16' cy='17' rx='11.5' ry='8.5' opacity='.45'/%3E%3Cellipse cx='16.5' cy='17.5' rx='7' ry='5' opacity='.7'/%3E%3Cellipse cx='17' cy='18' rx='2.5' ry='1.75'/%3E%3C/g%3E%3C/svg%3E">
@@ -28,35 +28,41 @@
           <span class="masthead__count"><span id="project-count"></span> repositories</span>
         </span>
       </div>
-      <h1 class="masthead__line">Thirteen research projects: what I built, what I tested and what I found.</h1>
+      <h1 class="masthead__title">Advancing intelligence.</h1>
+      <p class="masthead__line">Understanding it, building it, and the chills of seeing what the intelligence we create can do. Fourteen projects below: what I built, what I tested, what broke.</p>
     </header>
 
     <main>
       <section class="origin" aria-labelledby="origin-title">
         <p class="section-label" id="origin-title">How this started</p>
         <div class="origin__body">
-          <p>When my high school shut down near the end of junior year, all my friends joined another high school. I decided to stay home and dedicate myself full time to research, which produced most of these projects. I was already researching before that, and I enrolled elsewhere only to sit my exams.</p>
-          <p>No lab, no mentor, no advisor, no funding, no university affiliation, no professor's help. Just me, my laptop and LLMs, plus GPUs I rented when an experiment needed them.</p>
+          <p>Near the end of my junior year, my high school shut down. My friends moved to another school. I enrolled at a different one so I could write my finals and graduate, and negotiated to work from home instead of attending every day, so my days go to research.</p>
+          <p>Three months ago I couldn't write a line of code. No lab, no mentor, no funding, no university behind it: just my laptop, LLMs, and GPUs I rent when an experiment needs one. Almost everything below was built since.</p>
+          <p>Along the way, I've been pulling my friends into AI too.</p>
         </div>
       </section>
 
       <section class="standout" aria-labelledby="standout-title">
         <p class="section-label" id="standout-title">Top standout</p>
         <div class="standout__body">
-          <h2 class="standout__headline"><em>I replicated</em> a headline AI result, then found a far simpler route to most of the same gain.</h2>
-          <p>Researchers reported that GPT-6 Astra could edit a model's weights directly, taking it from 7.9% to 48.1% on MATH-500. I rebuilt the edit from their published logs and scored 54.0%, so the result holds up. Then I turned the model's thinking off, with no edit at all. Across both benchmarks that reached 48.8%, about 76% of the edit's gain at about one-seventh of the tokens. The edit still wins at 61.0%, so it is a real improvement, just much smaller than the headline jump suggests. Thinking off used the model card's own settings, so the comparison is not perfectly matched. These were exploratory runs and have not been peer reviewed.</p>
-          <a class="standout__link" href="https://github.com/meta-lucky-builds/stress-testing-weight-space-programming" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">↗</span></a>
+          <h2 class="standout__headline"><em>I tested</em> what a published world-model method says it never measured: whether adapting makes it forget.</h2>
+          <p>JEPA-TTT lets a world model keep learning after its environment changes. Its authors write that their experiments "do not measure retention" or catastrophic forgetting. There was no official code, so I rebuilt it from the paper and added the missing test: silently switch the world back and see what the model still knows. Fine-tuning adapts well, then drops to 0.255 to 0.320 right after the switch, against 0.812 for the model that never adapted. A design of mine that freezes the world model and learns only a small action translator held 0.753 on average, and kept its edge over fine-tuning on every seed. With 16 updates per batch, adaptation also beat the paper's published scores on both shifts: 0.755 against 0.725, and 0.773 against 0.728.</p>
+          <p>This is 3 seeds on one task, on a different checkpoint, and at the paper's own update rate I scored below it.</p>
+          <a class="standout__link" href="https://github.com/meta-lucky-builds/world-model-adaptation-vs-retention" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
-      <section class="traits" aria-labelledby="traits-title">
-        <p class="section-label" id="traits-title">What sets the work apart</p>
-        <ul class="traits__list" role="list">
-          <li><strong>I commit before I see the data.</strong> Most of these projects set their hypotheses, kill criteria or decision rules in advance. In one, 9 of 14 scored hypotheses were killed by their own criteria.</li>
-          <li><strong>I publish what failed.</strong> I report when no new method beat a tuned baseline, when no biology-to-AI mapping was supported, and when a fresh re-implementation flipped my own conclusions.</li>
-          <li><strong>My numbers can check themselves.</strong> In several projects, tests or CI fail if the headline numbers stop matching the stored results.</li>
-        </ul>
+      <section class="metrics" aria-labelledby="metrics-title">
+        <p class="section-label" id="metrics-title">By the numbers</p>
+        <dl class="metrics__grid">
+          <div class="metrics__item"><dt>1,600</dt><dd>paired robot-policy episodes in one benchmark</dd></div>
+          <div class="metrics__item"><dt>65</dt><dd>attacks I logged against my own claim checker</dd></div>
+          <div class="metrics__item"><dt>9 of 14</dt><dd>of my own hypotheses killed by criteria I set in advance</dd></div>
+          <div class="metrics__item"><dt>171</dt><dd>physics questions, each answered from first principles</dd></div>
+        </dl>
       </section>
+
+      <p class="build-note"><strong>How I work.</strong> The designing, decisions, hypotheses, experimenting and research come from me. Claude Code helps with implementation, stress-testing and rapid iteration. In physics, I asked all 171 questions myself, and Claude was used for citations, formatting and code execution. In the hard-problem paper, Claude was used in reviewing and helping execute tests, and I hold the responsibility for it.</p>
 
       <noscript>
         <p class="noscript">This index is drawn with JavaScript. Every repository is on <a href="https://github.com/meta-lucky-builds">github.com/meta-lucky-builds</a>.</p>
@@ -68,25 +74,60 @@
       </div>
       <ol id="projects" role="list" aria-label="Projects"></ol>
 
-      <p class="build-note"><strong>How this was built.</strong> I come up with my own hypotheses, make the decisions and design most of the experiments. I stress-test each design for edge cases with Claude and improve it iteratively. Claude Code did most of the implementation and helped with execution and review. In physics, I asked all 171 questions myself, and Claude was used for citations, formatting and code execution. In the hard-problem paper, Claude was used in reviewing and helping execute tests, and I hold the responsibility for it.</p>
+      <section class="why landed" id="landed" aria-labelledby="landed-title">
+        <p class="section-label">Where others landed too</p>
+        <div class="why__body">
+          <h2 class="why__title" id="landed-title">Some of what I found, others found independently around the same time</h2>
+          <ul class="landed__list">
+            <li><strong>Turning a model's thinking off explains most of a famous weight-edit gain.</strong> <a href="https://carlostoledo.co/reports/weight-space-programming.html" target="_blank" rel="noopener">An independent audit</a> got there a day before my run. I added GSM8K, the remaining 12.2-point gain, and a layer-overlap measure I found nobody else reporting.</li>
+            <li><strong>Lower prediction error doesn't mean better control.</strong> Two October 2026 papers report the same gap in JEPA world models: <a href="https://arxiv.org/abs/2610.19375" target="_blank" rel="noopener">one</a> and <a href="https://arxiv.org/abs/2610.35636" target="_blank" rel="noopener">two</a>.</li>
+            <li><strong>A memory probe needs a baseline.</strong> <a href="https://arxiv.org/abs/2610.22655" target="_blank" rel="noopener">A 15 October paper</a> argues that probe accuracy alone is too permissive, the same point behind my never-trained-task control.</li>
+            <li><strong>An LLM can make a better robot brain than an end-to-end policy.</strong> On <a href="https://arxiv.org/abs/2610.36420" target="_blank" rel="noopener">a simulated SO-101 benchmark</a>, an LLM planning over a learned grasping policy scored 83.2%, against about 61% for the best end-to-end models. That's the question I'm building my own arm around.</li>
+          </ul>
+        </div>
+      </section>
 
       <section class="why" id="why" aria-labelledby="why-title">
         <p class="section-label">Why</p>
         <div class="why__body">
           <h2 class="why__title" id="why-title">Why I do the things I do</h2>
 
-          <h3>The god-tier problem</h3>
-          <p>P vs NP is the god-tier problem, and it is the one I want to solve. It asks whether every problem whose answer can be checked quickly can also be solved quickly. It has been open for more than fifty years. Proving it, yes or no, might be one of the greatest things humanity ever achieves. I have not solved it, and neither has anyone else.</p>
-          <p>The reason I work on AI is that the two feed each other. AI can help us search for ideas and proofs that are out of reach today. And an answer to P vs NP would tell us what search and learning can and cannot do efficiently, which is exactly what we need to know to build even better AI.</p>
+          <h3>Lack of fear</h3>
+          <p>The things I value most are curiosity and, basically, lack of fear. Curiosity is lack of fear to ask. Risk-taking is lack of fear to be at stake. Standing out is lack of fear of not being mixed into the group, or of expressing yourself.</p>
+          <p>When you have the most capable thing in existence, as far as I know, why would you not want to explore and play at the limits, rather than settle your ambition? Curiosity is an innate power evolution gave us. Expression is a power. Why do we constrict them instead of making them flourish? That doesn't mean grinding 24/7 on random stuff. It means using it to the fullest.</p>
+          <p>If I'm afraid of anything, it's not appreciating the stuff we're capable of by not doing anything with it.</p>
 
-          <h3>Why I am pro-AI</h3>
-          <p>I am pro-AI. I think it is one of the most important things humanity has ever built, because it took us into the meta-layer of innovation. For most of history we built tools that assist us. Now we are building something that can help with the act of innovating itself.</p>
+          <h3>Evolution</h3>
+          <p>I have real awe for evolution and where it has gotten us. The stuff we take for granted, our body, our brain, is truly some of the most complex stuff in existence, as far as I know. But now that it has reached an intelligence like this, we shouldn't let it be a bottleneck. It's very inefficient and slow.</p>
+          <p>Editing ourselves and bypassing the speed of evolution. Reprogramming. Solving diseases and bottlenecks. Solving aging. Exploring space, expanding on the Kardashev scale. Solving problems at the edge of our capability, or probably beyond, like the hard problem of consciousness. Mostly a mix of physics, biology (leaning towards neuroscience) and AI.</p>
+
+          <h3>Not a tool, a paradigm</h3>
+          <p>If I'm painting, the brush is a tool. AI isn't something that only expands what we can do past physical bottlenecks, the way cars or ships did. It also expands how we think. We're limited by a set of bottlenecks and biases that we can't rely on probability to get over. I'm never criticizing the human brain. It's one of the most fascinating and probably most capable things there is. But it has bottlenecks.</p>
+          <p>That's why I see AI and robotics not just as tools, but as a paradigm to accelerate, build and explore. We got into the meta-layer of innovation, rather than just building assisting tools.</p>
+
+          <h3>The god-tier problem</h3>
+          <p>P vs NP asks whether every problem whose answer can be checked quickly can also be solved quickly. It has been open for more than fifty years. Here's why I call it god-tier. If P = NP were proved, and an efficient algorithm were given, a lot of the standard stuff we do becomes obsolete. In an optimization sense you could do almost anything. For models, you wouldn't have to run backprop or train them the way we do now. You could search directly for the smallest model that explains the data. This is something bigger than the LLMs or the AI we have right now.</p>
+          <p>Most researchers expect the answer is no, and that would matter too. I haven't solved it, and neither has anyone else. Developing and advancing AI is, I think, one of the best ways, or at least a huge contribution, towards the pursuit of it.</p>
+
+          <h3>The 2%</h3>
+          <p>Chimpanzees share roughly 98% of our DNA. With that 2% difference, they're smashing boxes, jumping and roaming, and here we are exploring space, searching galaxies and building the most advanced studies we can. Now imagine something 2% above us. It might see us as chimps. Our smartest, Einstein, Hawking, Newton, Dirac, might be close to its dumbest. And if it controlled things, would we even know? Chimps don't know everything we do to them.</p>
+          <p>Whether that's good depends a lot on self-preservation. If it isn't self-preserving, it's both a goal and a risk. If it is, I think the chances of it going well decrease a lot.</p>
+
+          <h3>Consciousness</h3>
+          <p>Consciousness is playing at the limits. We don't exactly know how to think about it. Probably we aren't capable of it, or maybe we're asking the wrong question. For centuries, if not thousands of years, humanity has explored different paths towards it. That evolution produced something capable of even questioning it is not something we can take for granted.</p>
+          <p>Is AI conscious? If you mean a self-preserving agent, then probably yeah. But it's not fair to expect to know directly whether it's conscious from its thoughts. I wrote <a href="https://meta-lucky-builds.github.io/attempt-at-the-hard-problem/" target="_blank" rel="noopener">a paper</a> that tries to make the functional part precise, and it says where it stops.</p>
 
           <h3>What worries me about abundance</h3>
-          <p>Tech leaders speak of abundance. But humans never evolved to get everything without spending energy. When the energy we spend gets very low compared with what we get back, I do not think the brain handles it well.</p>
-          <p>This worry is old. Roman writers already complained about it: the poet Juvenal mocked a public that had given up its civic duties for bread and circuses. Historians still argue over how much hedonism had to do with Rome's decline, but the concern was real to the people living through it.</p>
-          <p>Then there is John Calhoun's mouse utopia, Universe 25, begun in 1968. The mice had plenty of food and water, shelter and no predators. The colony grew to about 2,200, then social behaviour broke down, births collapsed and it died out. Mice are not people, and what the experiment means for humans is still disputed, but I take it as a warning.</p>
-          <p>So I do not think the answer is to stop AI from taking our work. If abundance comes, I would rather change the side that cannot keep up. I want us to explore gene editing, and to use advancing AI itself, to reach a day when we can program the human brain safely. Nobody can do that today, and "safely" is the hardest word in that sentence.</p>
+          <p>Here's the problem in one line: we're about to make reward almost free, and the brain was built for reward that costs effort.</p>
+          <p>For hundreds of thousands of years, everything we wanted cost conscious effort. We hunted in the wild, scraped trees, moved places, shifted to new conditions. Effort and reward were wired together. Abundance cuts the wire. As far as I know, the ratio of conscious effort to what you get has never been this low, and AI pushes it towards zero. A brain built for effort, handed reward without it, will chase the reward itself. I expect addiction and depression to be the default outcome, not a side effect.</p>
+          <p>Slowing AI down won't fix that, and I don't think it should. So here's the radical idea: change the brain. Roughly how it might work, as a sketch and not a plan:</p>
+          <ul class="landed__list">
+            <li><strong>Find the wire.</strong> Map the circuits that tie effort to reward, like the dopamine loop that fires on the gap between what you expected and what you got.</li>
+            <li><strong>Retune it, don't remove it.</strong> Make meaning still come from challenge and growth, even when survival no longer demands effort.</li>
+            <li><strong>Start reversible.</strong> Precise, undoable interventions first. Permanent ones like gene editing only once they are understood.</li>
+          </ul>
+          <p>This is exactly where AI comes in, and why I work on it. Advancing AI is what could model the brain well enough to predict what a change does before anyone tries it. Physical AI, robots and automated labs running experiments, is what could test it at a speed and precision people can't. The same technology that creates the problem is the best tool we have for solving it.</p>
+          <p>And it needs rules as detailed as the technology. Not one license, but a thick rulebook with specific answers for specific edge cases: who can receive it and at what age, what consent looks like and how it's recorded, what happens if it goes wrong, who's liable, how it's undone, how it works across borders. That's how we already handle medicine and aviation. Nobody can do this today, and "safely" is the hardest word here.</p>
         </div>
       </section>
 
@@ -110,11 +151,13 @@
         <div class="why__body">
           <h2 class="why__title" id="simulation-title">My take on the simulation hypothesis</h2>
 
-          <p>When someone says we are in a simulation, my first question is who built the computer. Then who built theirs. I noticed that this question only ever produces another floor. The usual version of the theory stacks parent universes on child universes forever, and explaining each one by the one above it is the same linear cause-and-effect trap I was trying to get out of.</p>
-          <p>So I stopped asking whether the simulator sits in base reality or in a sandbox, because I think that question carries the mistake inside it. It assumes there is a bottom floor holding everything up. My view is that there is none. The tower does not run up or down forever. It curls into a circle.</p>
-          <p>That changes what a simulator is. It is no external god in a pristine, ultimate universe while we sit in a fake box. The creator and the creation are two nodes in the same self-referential loop, and they hold each other up like two boards leaning together in a V.</p>
-          <p>It also removes the need for the machine. Reality does not need a supercomputer of silicon or quantum hardware running in a parent universe. The simulation is the reality, and the reality is the loop. It exists because its mathematical and logical relations close the circuit on themselves, with no outside creator.</p>
-          <p>I hold this as a position, and I cannot test it. I also know why it appeals to me: it dissolves a regress I find unsatisfying, and that feeling is no evidence that it is true. The weakest point is the one I would press first if this were someone else's idea. A loop may explain why nothing outside it is needed, but it does not explain why there is a loop at all. I would rather leave that gap visible than talk as if it were closed.</p>
+          <p>When someone says we are in a simulation, my first question is who built the computer. Then who built theirs. The usual version of the theory stacks parent universes on child universes forever, and that's the same linear cause-and-effect trap.</p>
+          <p>And if we're living in a simulation, what are we even doing thinking about computing? If we're in one, we don't even know the real laws of physics. Maybe there isn't even blank space. Maybe energy isn't scarce. Maybe the way we have air, their equivalent is computing power. Or maybe the thing we call power doesn't even exist there, and less power means more powerful.</p>
+          <p>But the chilling part: at least an ant is in our sandbox. We and the ant share the same sandbox. The simulator wouldn't.</p>
+          <p>For a long time, when a question sounded absurd, we could say physics prevents that. Now we have the right to ask: what if the laws of physics themselves are just confined to this sandbox? Outside it there might not be physics, or even logic. Bigger could be smaller and smaller could be bigger. We say a simulation needs massive computational power, but that's true in our universe, not necessarily in base reality. What if base reality never needed computation at all?</p>
+          <p>Evolution has made us think cause and effect exist. Maybe primed, not hard-coded, because if it were hard-coded, how could I even think like this?</p>
+          <p>And what if there's no stack at all? What if base reality doesn't exist, and that doesn't mean we don't exist? My take right now is a self-referential loop. There's no base reality at the bottom. The simulator and the simulated are two nodes in the same loop, holding each other up like two boards leaning into a V. The simulation is the reality, and the reality is the loop.</p>
+          <p>I hold this loosely and I can't test it. It appeals to me because it dissolves a regress I dislike, and that isn't evidence. A loop explains why nothing outside is needed, not why there's a loop at all.</p>
         </div>
       </section>
     </main>

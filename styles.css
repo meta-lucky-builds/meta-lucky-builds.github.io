@@ -440,7 +440,7 @@ a {
 
 .build-note {
   max-width: 40rem;
-  margin: 1.75rem 0 0;
+  margin: 0 0 clamp(2.5rem, 6vw, 4rem);
   margin-left: calc(3.75rem + var(--col-gap));
   font-size: 0.9375rem;
   line-height: 1.55;
@@ -688,6 +688,121 @@ html {
   .project__standout {
     font-size: 1rem;
   }
+}
+
+/* ---------- Headline and numbers ---------- */
+
+.masthead__title {
+  margin: clamp(3.5rem, 11vw, 8.5rem) 0 0;
+  padding-left: calc(3.75rem + var(--col-gap));
+  font-family: var(--serif);
+  font-size: clamp(3rem, 1.6rem + 6vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+
+.masthead__title + .masthead__line {
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.metrics > .section-label,
+.metrics__grid {
+  grid-column: 2;
+}
+
+.metrics > .section-label {
+  margin-bottom: 1.25rem;
+}
+
+.metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.75rem var(--col-gap);
+  margin: 0;
+}
+
+.metrics__item {
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--rule);
+}
+
+.metrics__item dt {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+  line-height: 1;
+  color: var(--bone);
+}
+
+.metrics__item dd {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--sage);
+}
+
+@media (max-width: 960px) {
+  .masthead__title {
+    padding-left: calc(3rem + var(--col-gap));
+  }
+
+  .metrics {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .metrics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .masthead__title {
+    padding-left: 0;
+  }
+
+  .metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .metrics > .section-label,
+  .metrics__grid {
+    grid-column: 1;
+  }
+}
+
+.landed__list {
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landed__list li {
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--sage);
+}
+
+.landed__list strong {
+  font-weight: 500;
+  color: var(--bone);
+}
+
+.landed__list a,
+.why__body p a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 /* ---------- Cursor tag: ui.js owns its transform ---------- */
