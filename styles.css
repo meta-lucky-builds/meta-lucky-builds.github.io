@@ -1049,6 +1049,126 @@ html.is-ready .project__link {
   }
 }
 
+/* ---------- Writing page ---------- */
+
+#manifold {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.writing__epigraph {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem);
+  line-height: 1.35;
+  color: var(--sage);
+  max-width: 34rem;
+}
+
+.contents {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  padding-bottom: clamp(1rem, 4vw, 2.5rem);
+}
+
+.contents > .section-label,
+.contents__list {
+  grid-column: 2;
+}
+
+.contents__list {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contents__list a {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+  color: var(--sage);
+  transition: color var(--t-quick) var(--ease), padding-left var(--t-slow) var(--ease);
+}
+
+.contents__list a:hover,
+.contents__list a:focus-visible {
+  color: var(--bone);
+  padding-left: 0.5rem;
+}
+
+.contents__no {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+
+.contents__title {
+  font-family: var(--serif);
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+
+.essay {
+  scroll-margin-top: 1rem;
+}
+
+/* A soft veil behind the text column so the surface never fights the reading. */
+.writing-page .why__body {
+  position: relative;
+}
+
+.writing-page .why__body::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -3rem;
+  z-index: -1;
+  max-width: 48rem;
+  background: radial-gradient(closest-side, rgba(12, 21, 24, 0.72), rgba(12, 21, 24, 0) 100%);
+  pointer-events: none;
+}
+
+#surface-note {
+  position: fixed;
+  right: var(--gutter);
+  bottom: 1.25rem;
+  z-index: 2;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted-dim);
+  transition: opacity var(--t-slow) var(--ease);
+  pointer-events: none;
+}
+
+.why--teaser .standout__link {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .contents {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contents > .section-label,
+  .contents__list {
+    grid-column: 1;
+  }
+
+  #surface-note {
+    display: none;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
