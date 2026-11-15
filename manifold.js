@@ -36,6 +36,20 @@
       const depth = 0.75 * (0.5 + 0.5 * Math.cos(t * 0.22)); // deep, then flattening, then deep again
       return -depth * g(x, z, 0.2, 2.2, 0.35) + 0.04 * Math.sin(x * 2 + z);
     },
+    scatter: (x, z, t) => {
+      // many small peaks, each breathing on its own clock
+      const ix = Math.floor(x * 2.2), iz = Math.floor(z * 2.2);
+      let h = 0;
+      for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) {
+        const cx = ix + a, cz = iz + b;
+        const r1 = Math.sin(cx * 127.1 + cz * 311.7) * 43758.5453, r2 = Math.sin(cx * 269.5 + cz * 183.3) * 43758.5453;
+        const fx = r1 - Math.floor(r1), fz = r2 - Math.floor(r2);
+        const px = (cx + fx) / 2.2, pz = (cz + fz) / 2.2;
+        const amp = 0.12 + 0.12 * Math.sin(t * 0.6 + fx * 6.28);
+        h += amp * g(x, z, px, pz, 0.018);
+      }
+      return h;
+    },
     nested: (x, z, t) => {
       const r = Math.hypot(x - 0.2, (z - 2.3) * 1.15);
       const b = 0.03 * Math.sin(t * 0.4);
@@ -43,7 +57,7 @@
         + 0.14 * Math.exp(-((r - 0.27) ** 2) / 0.004) + 0.08 * Math.exp(-(r * r) / 0.004) - 0.05;
     }
   };
-  const HUES = { hero: 150, peaks: 62, terrain: 120, terrace: 190, funnel: 260, twin: 30, fold: 300, well: 345, nested: 210 };
+  const HUES = { hero: 150, peaks: 62, terrain: 120, terrace: 190, funnel: 260, twin: 30, fold: 300, well: 345, nested: 210, scatter: 48 };
   const NAMES = Object.keys(SHAPES);
   const weight = {}; NAMES.forEach(n => { weight[n] = n === 'hero' ? 1 : 0; });
   let target = 'hero';
