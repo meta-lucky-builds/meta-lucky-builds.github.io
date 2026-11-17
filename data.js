@@ -2,9 +2,9 @@ window.PROJECTS = [
   {
     repo: "auto-sci-harness",
     lead: "I built",
-    rest: "a court for AI research claims that has to pass its own exam before it is allowed to judge anything.",
+    rest: "an AI research system designed to improve itself, under rigorous scrutiny: every claim, its own upgrades included, must pass a court of code it cannot override, and the court had to pass its own exam first.",
     standout: "On its exam it caught a real hole in my own system: a strawman baseline it had certified as VALIDATED. And in the two live runs on record, the Kernel rejected my own agent's claims.",
-    detail: "Designed to improve itself. Every claim faces ten checks decided by code, covering provenance, preregistration, reproduction, statistics, baseline integrity, held-out confirmation and leak audits. Retries spend a shrinking statistical budget, so endless retries can't sneak a claim through. And 65 attacks on my own checker are kept in a museum: each of the 51 fixed bugs ships with a patch that puts it back, and a test has to catch it.",
+    detail: "Every claim faces ten checks decided by code, covering provenance, preregistration, reproduction, statistics, baseline integrity, held-out confirmation and leak audits. Retries spend a shrinking statistical budget, so endless retries can't sneak a claim through. And 65 attacks on my own checker are kept in a museum: each of the 51 fixed bugs ships with a patch that puts it back, and a test has to catch it.",
     outcomeLabel: "Where it stands",
     outcome: "Experimental, not production-grade. It has been used locally for research runs, and the first certified result is the next milestone. The self-improvement loop is experimental and has not yet shown an improvement.",
     tags: ["research agents", "verification", "systems"],

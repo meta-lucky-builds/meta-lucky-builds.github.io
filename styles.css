@@ -1251,6 +1251,441 @@ html.is-ready .project__link {
   }
 }
 
+.landed__sub {
+  margin: clamp(2.25rem, 5vw, 3.25rem) 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--bone);
+}
+
+.landed__note {
+  max-width: 40rem;
+  margin: 0.6rem 0 0 !important;
+  font-family: var(--mono);
+  font-size: 0.75rem !important;
+  line-height: 1.6;
+  color: var(--muted) !important;
+}
+
+/* ---------- Writing callout ---------- */
+
+.readme-callout {
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(2.5rem, 6vw, 4rem) calc(3.75rem + var(--col-gap));
+  max-width: 40rem;
+}
+
+.readme-callout__link {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem 1.35rem;
+  border: 1px solid hsl(300 30% 70% / 0.28);
+  border-radius: 6px;
+  background:
+    radial-gradient(120% 140% at 0% 0%, hsl(300 35% 40% / 0.16), transparent 60%),
+    radial-gradient(120% 140% at 100% 100%, hsl(210 40% 40% / 0.14), transparent 60%);
+  transition: border-color var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+
+.readme-callout__link:hover,
+.readme-callout__link:focus-visible {
+  border-color: hsl(300 40% 78% / 0.6);
+  transform: translateY(-2px);
+}
+
+.readme-callout__title {
+  font-family: var(--serif);
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--bone);
+}
+
+.readme-callout__text {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--sage);
+}
+
+.readme-callout__go {
+  margin-top: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: hsl(300 40% 82%);
+}
+
+@media (max-width: 640px) {
+  .readme-callout {
+    margin-left: 0;
+  }
+}
+
+/* ---------- How it connects ---------- */
+
+.connect {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  column-gap: var(--col-gap);
+  padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(3.5rem, 8vw, 6rem);
+}
+
+.connect > .section-label,
+.connect__body {
+  grid-column: 2;
+}
+
+.connect > .section-label {
+  margin-bottom: 1rem;
+}
+
+.connect__intro {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--sage);
+}
+
+.connect__map-wrap {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: radial-gradient(80% 90% at 50% 50%, rgba(22, 40, 44, 0.55), rgba(12, 21, 24, 0) 75%);
+}
+
+.connect__map {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  font-family: var(--mono);
+}
+
+.map__thread {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: hsl(var(--hue) 30% 62%);
+  opacity: 0.8;
+}
+
+.map__edge {
+  fill: none;
+  stroke: rgba(232, 226, 212, 0.22);
+  stroke-width: 1.2;
+  transition: stroke var(--t-quick) var(--ease), stroke-width var(--t-quick) var(--ease), opacity var(--t-quick) var(--ease);
+}
+
+.map__edge.is-dashed {
+  stroke-dasharray: 4 6;
+  animation: dashflow 2.4s linear infinite;
+}
+
+.map__edge.is-on {
+  stroke: hsl(48 70% 78%);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  animation: dashflow 1.2s linear infinite;
+}
+
+.map__edge.is-dashed.is-on {
+  stroke-dasharray: 4 6;
+}
+
+.connect__map.has-focus .map__edge:not(.is-on) {
+  opacity: 0.18;
+}
+
+@keyframes dashflow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.map__node {
+  cursor: pointer;
+  outline: none;
+}
+
+.map__halo {
+  fill: hsl(var(--hue) 45% 60% / 0.12);
+  transition: fill var(--t-quick) var(--ease), r var(--t-quick) var(--ease);
+}
+
+.map__dot {
+  fill: hsl(var(--hue) 45% 72%);
+}
+
+.map__label {
+  font-size: 12.5px;
+  fill: var(--sage);
+  transition: fill var(--t-quick) var(--ease), opacity var(--t-quick) var(--ease);
+}
+
+.map__node:hover .map__halo,
+.map__node:focus-visible .map__halo,
+.map__node.is-on .map__halo {
+  fill: hsl(var(--hue) 55% 65% / 0.32);
+}
+
+.map__node:hover .map__label,
+.map__node:focus-visible .map__label,
+.map__node.is-on .map__label {
+  fill: var(--bone);
+}
+
+.connect__map.has-focus .map__node:not(.is-on):not(:hover) .map__label {
+  opacity: 0.35;
+}
+
+.connect__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin: 0.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.connect__key {
+  display: inline-block;
+  width: 1.75rem;
+  border-top: 1.5px solid rgba(232, 226, 212, 0.5);
+}
+
+.connect__key--dashed {
+  margin-left: 1rem;
+  border-top-style: dashed;
+}
+
+.connect__findings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--col-gap);
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.finding {
+  position: relative;
+  padding: 1.5rem 0 1.75rem;
+  border-top: 1px solid var(--rule);
+  outline: none;
+  transition: border-color var(--t-slow) var(--ease);
+}
+
+.finding::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 100%;
+  height: 1px;
+  background: hsl(48 70% 78%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-slow) var(--ease);
+}
+
+.finding.is-on::before,
+.finding:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.finding__no {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.finding__title {
+  margin: 0.5rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--bone);
+  text-wrap: balance;
+}
+
+.finding__stat {
+  display: grid;
+  gap: 0.25rem;
+  margin: 1rem 0 0;
+}
+
+.finding__num {
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3.25rem);
+  line-height: 1;
+  color: hsl(48 62% 76%);
+  letter-spacing: -0.01em;
+}
+
+.finding__cap {
+  max-width: 30rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.finding__text {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--sage);
+}
+
+.finding__in {
+  margin: 1rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.7;
+  color: var(--muted-dim);
+  overflow-wrap: anywhere;
+}
+
+.connect__next {
+  max-width: 48rem;
+  margin-top: 1rem;
+  padding: 1.25rem 1.5rem 1.4rem;
+  border: 1px dashed var(--rule-strong);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color var(--t-slow) var(--ease);
+}
+
+.connect__next.is-on,
+.connect__next:focus-visible {
+  border-color: hsl(48 60% 70% / 0.7);
+}
+
+.connect__next-title {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--bone);
+}
+
+.connect__next-list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: wire;
+}
+
+.connect__next-list li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.75rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--sage);
+}
+
+.connect__next-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 1.1rem;
+  border-top: 1.5px dashed var(--muted);
+}
+
+.connect__next-list em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--bone);
+}
+
+.connect__foundation {
+  max-width: 40rem;
+  margin: 1.75rem 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--sage);
+}
+
+/* Thread filter and labels on the list */
+
+.threadbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem calc(3.75rem + var(--col-gap));
+}
+
+.threadbar button {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--sage);
+  cursor: pointer;
+  transition: color var(--t-quick) var(--ease), border-color var(--t-quick) var(--ease), background-color var(--t-quick) var(--ease);
+}
+
+.threadbar button:hover {
+  color: var(--bone);
+  border-color: hsl(var(--thue, 48) 45% 65% / 0.7);
+}
+
+.threadbar button[aria-pressed="true"] {
+  color: var(--ink);
+  background: hsl(var(--thue, 48) 40% 78%);
+  border-color: transparent;
+}
+
+.project__thread {
+  color: hsl(var(--thue) 45% 74%) !important;
+}
+
+.project.is-pinged {
+  animation: ping 1.6s var(--ease);
+}
+
+@keyframes ping {
+  0%, 60% {
+    background-color: rgba(232, 226, 212, 0.07);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 960px) {
+  .connect__findings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .connect {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .connect > .section-label,
+  .connect__body {
+    grid-column: 1;
+  }
+
+  .threadbar {
+    margin-left: 0;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

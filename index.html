@@ -15,6 +15,7 @@
   <script src="data.js" defer></script>
   <script src="field.js" defer></script>
   <script src="ui.js" defer></script>
+  <script src="connect.js" defer></script>
 </head>
 <body>
   <canvas id="field" aria-hidden="true"></canvas>
@@ -42,6 +43,14 @@
           <p>I've helped my peers get into AI, exposing them to various tools and telling them how capable this stuff is.</p>
         </div>
       </section>
+
+      <aside class="readme-callout" aria-label="Read my writing">
+        <a class="readme-callout__link" href="writing.html">
+          <span class="readme-callout__title">If you want to know how I think, read my writing.</span>
+          <span class="readme-callout__text">Eight pieces on why I do this, from fear and evolution to abundance and consciousness, plus a log of 171 questions I asked over a couple of months.</span>
+          <span class="readme-callout__go">Open Writing <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </aside>
 
       <section class="origin timeline" aria-labelledby="timeline-title">
         <p class="section-label" id="timeline-title">Timeline</p>
@@ -95,6 +104,63 @@
       </div>
       <ol id="projects" role="list" aria-label="Projects"></ol>
 
+      <section class="connect" id="connect" aria-labelledby="connect-title">
+        <p class="section-label">How it connects</p>
+        <div class="connect__body">
+          <h2 class="why__title" id="connect-title">Fourteen repos. Four threads. Results that cross over.</h2>
+          <p class="connect__intro">Looked at one by one, these are fourteen topics. Side by side, they are four threads, and a result in one keeps changing what the others mean.</p>
+          <p class="connect__intro">It runs forward too. A step in one thread could lift the rest: a clean way to read what a model actually uses would tell the forgetting work what to protect, the world models when to adapt, and the robot when it is wrong. Hover a finding to see where it travels.</p>
+
+          <div class="connect__map-wrap">
+            <svg class="connect__map" id="connect-map" viewBox="0 0 960 440" role="img" aria-label="Map of the fourteen repositories in four threads, with lines where a result in one connects to another."></svg>
+          </div>
+          <p class="connect__legend"><span class="connect__key connect__key--solid"></span>a link that shows in the results <span class="connect__key connect__key--dashed"></span>the next experiment</p>
+
+          <ol class="connect__findings">
+            <li class="finding" data-finding="1" tabindex="0">
+              <span class="finding__no">01</span>
+              <h3 class="finding__title">Often the memory wasn&rsquo;t gone. The way in was.</h3>
+              <p class="finding__stat"><span class="finding__num">0.32 &rarr; 0.75</span><span class="finding__cap">score right after the world silently switched back: fine-tuning, against a frozen world model with a small action calibrator (its average)</span></p>
+              <p class="finding__text">In small networks, early forgetting was 0.96 lost access, and masking the outputs alone recovered 0.94. It depends on the setting: deeper forgetting leaves more that nothing recovers. Refitting only the last layer took a toy learner from 41.5% to 70.6%. The world-model test points the same way: freeze the core, adapt the edge, and the old world survives. The SO-101 design, a spec not yet run, has the same shape.</p>
+              <p class="finding__in">how-networks-forget &middot; continual-learning-experiments &middot; world-model-adaptation-vs-retention &middot; transfer</p>
+            </li>
+            <li class="finding" data-finding="2" tabindex="0">
+              <span class="finding__no">02</span>
+              <h3 class="finding__title">The probe said yes. The control said no.</h3>
+              <p class="finding__stat"><span class="finding__num">0.59 &rarr; 0.04</span><span class="finding__cap">memory a plain probe reported, against what was left after a never-trained-task control, same setting</span></p>
+              <p class="finding__text">The same trap turned up five times. From pixels, the world model with the best predictions had the lowest control success, though the gap was under my own effect rule. A calibrator that predicted worse retained far better. A random direction moved an LLM&rsquo;s answer almost as much as the &ldquo;concept&rdquo; did. A direction matching a weight edit at cosine 0.62 changed nothing when removed. My hard-problem paper says why: decoding is neither sufficient nor necessary for use.</p>
+              <p class="finding__in">how-networks-forget &middot; world-model-adaptation &middot; world-model-adaptation-vs-retention &middot; llm-introspection-probes &middot; stress-testing-weight-space-programming &middot; attempt-at-the-hard-problem</p>
+            </li>
+            <li class="finding" data-finding="3" tabindex="0">
+              <span class="finding__no">03</span>
+              <h3 class="finding__title">Every claim gets an impostor.</h3>
+              <p class="finding__stat"><span class="finding__num">65</span><span class="finding__cap">attacks I logged against the gate built to enforce it</span></p>
+              <p class="finding__text">Each test asks what would produce the effect without the claimed cause: a task the network never learned, a random direction of the same size, the model&rsquo;s thinking simply switched off, the world silently switched back, a 20-minute check that noise even matters. auto-sci-harness turns that move into code an agent can run but can&rsquo;t overrule.</p>
+              <p class="finding__in">how-networks-forget &middot; llm-introspection-probes &middot; stress-testing-weight-space-programming &middot; world-model-adaptation-vs-retention &middot; flow-policy-noise-carry &middot; auto-sci-harness</p>
+            </li>
+            <li class="finding" data-finding="4" tabindex="0">
+              <span class="finding__no">04</span>
+              <h3 class="finding__title">One result sets the bar for the others.</h3>
+              <p class="finding__stat"><span class="finding__num">+13 from nothing</span><span class="finding__cap">points the best of 12 settings gained with no real effect behind it</span></p>
+              <p class="finding__text">So a 5-point gain needs about 900 episodes per arm before I trust it, a bar my 3-seed world-model results don&rsquo;t clear yet. The same robot-policy benchmark found that replanning every 10 steps instead of 50 added 22.5 points, but with a 0.2 s delay the same choice cost 14, found after the fact. A real arm has real lag, so that matters directly for how the SO-101 replans.</p>
+              <p class="finding__in">flow-policy-noise-carry &middot; world-model-adaptation-vs-retention &middot; so101-slow-roll</p>
+            </li>
+          </ol>
+
+          <div class="connect__next" data-finding="next" tabindex="0">
+            <p class="connect__next-title">Wires I haven&rsquo;t connected yet</p>
+            <ul class="connect__next-list">
+              <li>Give <em>sleep</em> the never-trained control from <em>how-networks-forget</em>. Its real-knowledge test has no near-zero control yet.</li>
+              <li>Run the action calibrator on the real SO-101, with replanning that accounts for delay.</li>
+              <li>Size the next retention run with the tuning-noise numbers, not a guess.</li>
+              <li>Point an activation monitor at <em>sleep</em>&rsquo;s false recall, which sits at 0.72 to 0.80 and rising.</li>
+            </ul>
+          </div>
+
+          <p class="connect__foundation">Underneath: 171 physics questions I asked myself, and a paper that sets the bar for AI metacognition: predicting hidden state beyond the input cues, confirmed by intervention. Fluent self-explanation doesn&rsquo;t count.</p>
+        </div>
+      </section>
+
       <section class="why landed" id="landed" aria-labelledby="landed-title">
         <p class="section-label">Where others landed too</p>
         <div class="why__body">
@@ -104,6 +170,14 @@
             <li><strong>Lower prediction error doesn't mean better control.</strong> Two October 2026 papers report the same gap in JEPA world models: <a href="https://arxiv.org/abs/2610.19375" target="_blank" rel="noopener">one</a> and <a href="https://arxiv.org/abs/2610.35636" target="_blank" rel="noopener">two</a>.</li>
             <li><strong>A memory probe needs a baseline.</strong> <a href="https://arxiv.org/abs/2610.22655" target="_blank" rel="noopener">A 15 October paper</a> argues that probe accuracy alone is too permissive, the same point behind my never-trained-task control.</li>
             <li><strong>An LLM can make a better robot brain than an end-to-end policy.</strong> On <a href="https://arxiv.org/abs/2610.36420" target="_blank" rel="noopener">a simulated SO-101 benchmark</a>, an LLM planning over a learned grasping policy scored 83.2%, against about 61% for the best end-to-end models. That's the question I'm building my own arm around.</li>
+            <li><strong>A world model that adapts but keeps what it knew.</strong> <a href="https://arxiv.org/abs/2611.15215" target="_blank" rel="noopener">AFTER</a>, posted on 11 November 2026, two days after my repos went public, pairs a fast correction with a slow state that only moves on lasting change. It is close in spirit to my before-plus-now gate. It does not test switching the world back.</li>
+          </ul>
+          <h3 class="landed__sub">What I tested that I couldn&rsquo;t find published</h3>
+          <p class="landed__note">After searching recent papers in November 2026. That is a statement about what I could find, not a claim to be first.</p>
+          <ul class="landed__list">
+            <li><strong>Switching the world back.</strong> I adapted a world model, then silently returned the original world and measured what it still knew. The method&rsquo;s own authors say they did not measure retention, and the closest designs reset every episode.</li>
+            <li><strong>Checking forgetting probes against tasks the network never learned.</strong> The general warning that probes can succeed on untrained features exists. I couldn&rsquo;t find it applied to forgetting, where it shrinks 0.59 to 0.04.</li>
+            <li><strong>A sign flip under delay.</strong> Replanning every 10 steps instead of 50 added 22.5 points, then cost 14 once a 0.2 s delay was added, found after the fact. Recent delay benchmarks show that horizon and delay interact, not this flip.</li>
           </ul>
         </div>
       </section>
