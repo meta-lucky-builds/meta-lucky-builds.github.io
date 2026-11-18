@@ -59,7 +59,7 @@ window.PROJECTS = [
     url: "https://meta-lucky-builds.github.io/attempt-at-the-hard-problem/",
     urlLabel: "meta-lucky-builds.github.io/attempt-at-the-hard-problem",
     lead: "I wrote",
-    rest: "Causal Access, a theory of consciousness built on one question: what does it mean for a mind, or an AI, to actually use what it knows? For LLMs it says a probe that reads a feature out of a model doesn't show the model uses it, and a fluent self-explanation isn't evidence it knows its own mind.",
+    rest: "Causal Access, a theory of consciousness that doubles as a test for AI: the line between a model that holds information and one that actually uses it.",
     standout: "Your optic nerves pass the obvious tests for a 'global workspace', so it adds a selection test that a mere relay fails. Twenty propositions, then fifty problems graded into five tiers, including ten it honestly can't explain, like why red looks the way it does. It does not derive feeling from function.",
     detail: "What it says for AI and mechanistic interpretability: a probe that decodes a feature doesn't show the model uses it, and a probe that fails doesn't show the feature is absent, since information can be used while decoding it alone shows nothing. Use has to be shown by intervention, and an off-manifold activation edit shows sensitivity, not ordinary use. A fluent self-explanation isn't evidence of metacognition, and conclusions about \"LLMs\" as one category are ill-formed, because a forward pass and a tool-using agent are different systems.",
     outcomeLabel: "What it explains",
