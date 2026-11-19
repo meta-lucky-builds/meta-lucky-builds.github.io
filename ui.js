@@ -52,18 +52,16 @@
     outcome.append(el('span', 'project__outcome-label', project.outcomeLabel), ` ${project.outcome}`);
 
     const inner = el('span', 'project__reveal-inner');
-    inner.append(el('span', 'project__detail', project.detail), outcome);
+    if (project.detail) inner.append(el('span', 'project__detail', project.detail));
+    if (project.outcome) inner.append(outcome);
 
     const reveal = el('span', 'project__reveal');
     reveal.append(inner);
 
     const body = el('span', 'project__body');
-    body.append(
-      headline,
-      el('span', 'project__standout', project.standout),
-      reveal,
-      el('span', 'project__url', project.urlLabel || `github.com/${OWNER}/${repo}`)
-    );
+    body.append(headline, el('span', 'project__standout', project.standout));
+    if (project.detail || project.outcome) body.append(reveal);
+    body.append(el('span', 'project__url', project.urlLabel || `github.com/${OWNER}/${repo}`));
 
     const tags = el('span', 'project__tags');
     (project.tags || []).forEach((name) => tags.append(el('span', 'project__tag', name)));
