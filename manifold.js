@@ -149,7 +149,7 @@
       target = next;
       if (note) {
         note.style.opacity = '0';
-        setTimeout(() => { note.textContent = active ? 'surface: ' + active.dataset.note : ''; note.style.opacity = '1'; }, 300);
+        setTimeout(() => { note.textContent = active && active.dataset.note ? 'surface: ' + active.dataset.note : ''; note.style.opacity = '1'; }, 300);
       }
     }
     dim = window.scrollY < H * 0.5 ? 1 : 0.62;
