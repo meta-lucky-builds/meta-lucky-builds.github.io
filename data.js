@@ -1,5 +1,16 @@
 window.PROJECTS = [
   {
+    repo: "learner-geometry",
+    lead: "Learning can make a network worse at learning again.",
+    rest: "I'm working on the mathematics of why, and how to reverse that wear.",
+    standout: "I derived a framework connecting how a network takes its learning steps to what gets left behind in its weights. In controlled experiments, that predicts a leading part of the loss of trainability and gives ways to suppress or reverse it. It also connects to which solution the network reaches and how task order affects it. The current results are on small networks. Extending them to large-scale continual learning is still open.",
+    detail: "",
+    outcomeLabel: "Where it stands",
+    outcome: "",
+    tags: ["theory", "continual learning", "optimisers"],
+    hue: 28
+  },
+  {
     repo: "auto-sci-harness",
     lead: "I built",
     rest: "a harness for research and discovery, designed to improve itself, with a mechanical kernel that verifies claims against data.",

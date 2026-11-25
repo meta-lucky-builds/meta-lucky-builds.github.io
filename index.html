@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>meta-lucky-builds</title>
-  <meta name="description" content="Fourteen research projects by meta-lucky-builds, each listed with what it actually showed or where it stands.">
+  <meta name="description" content="Fifteen research projects by meta-lucky-builds, each listed with what it actually showed or where it stands.">
   <meta name="theme-color" content="#0c1518">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1518'/%3E%3Cg fill='none' stroke='%23e8e2d4' stroke-width='1.5'%3E%3Cellipse cx='16' cy='17' rx='11.5' ry='8.5' opacity='.45'/%3E%3Cellipse cx='16.5' cy='17.5' rx='7' ry='5' opacity='.7'/%3E%3Cellipse cx='17' cy='18' rx='2.5' ry='1.75'/%3E%3C/g%3E%3C/svg%3E">
@@ -75,17 +75,37 @@
       <section class="standout" aria-labelledby="standout-title">
         <p class="section-label" id="standout-title">Top standout</p>
         <div class="standout__body">
-          <h2 class="standout__headline"><em>I made</em> a robot&rsquo;s world model keep learning after its physics changed, then silently switched the world back.</h2>
-          <p>Fine-tuning dropped to 0.320 on the wave shift. Freezing the model and only learning to translate actions held 0.753, on every seed, even though its predictions of the old world were worse. How well a model predicts isn&rsquo;t the same as how well it plans.</p>
-          <p>The paper&rsquo;s own limitations section says it doesn&rsquo;t test a return to the training dynamics. There was no official code, so I rebuilt it from the paper. With 16 times more updates it beat the published scores, on a different checkpoint; at the paper&rsquo;s own update rate I scored below it. 3 seeds, one task.</p>
-          <a class="standout__link" href="https://github.com/meta-lucky-builds/world-model-adaptation-vs-retention" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">↗</span></a>
+          <h2 class="standout__headline"><em>Learning can make a network worse at learning again.</em> I&rsquo;m working on the mathematics of why, and how to reverse that wear.</h2>
+          <ul class="standout__numbers">
+            <li><strong>960/960</strong> checks passed for the extrapolated small-move law on MNIST networks.</li>
+            <li><strong>About 8,000&times;</strong> less measured wear in one controlled small-move experiment, at the same evaluation cost as the comparison method.</li>
+            <li><strong>4% &rarr; 46%</strong>: recovery of the original weakest kernel eigenvalue after six pairs of target changes, with training outputs restored after each pair.</li>
+          </ul>
+          <p><strong>Why this could matter for continual learning.</strong> If we want a network to keep learning, we need to understand how each round changes its ability to learn the next thing. This work gives a mathematical account of one mechanism behind that change, and ways to act on it. If it extends to larger training settings, it could help us design learning rules around their long-term effects.</p>
+          <a class="standout__link" href="https://github.com/meta-lucky-builds/learner-geometry" target="_blank" rel="noopener">Read the repo <span aria-hidden="true">&#8599;</span></a>
         </div>
       </section>
+
+      <section class="why" id="now" aria-labelledby="now-title">
+        <p class="section-label">Now</p>
+        <div class="why__body">
+          <h2 class="why__title" id="now-title">What I&rsquo;m working on now</h2>
+          <p>I’m working on a problem inside continual learning. A network learns something, then something else, and the learning itself can change how easily it learns the next thing. If we want systems that keep learning over time, we need to understand what is happening there and how much of it comes from the way we train them.</p>
+          <p>Suppose you change a network’s targets and then bring its training outputs back to exactly where they started. Its weights can still retain a change, and the network can become harder to train. So even when the outputs look the same, something has happened to its ability to learn. My work develops a mathematical framework for predicting that change.</p>
+          <p>The connection is that many weight settings can give the same training outputs, and where along a step the learner evaluates its gradients helps decide which setting it reaches. In the small-move settings where the scalar law applies, that difference comes down to one number calculated from the update rule. And the same structure connects the solution the network reaches to its predictions on unseen inputs and the changes that accumulate as it keeps learning.</p>
+          <p>That gives a way to connect questions usually studied separately. Why do different learning rules reach different solutions even when they fit the training data equally? Why does task order matter? How can learning reduce future trainability, and can we reverse that without losing the current training fit?</p>
+          <p>I derived predictions and tested them on small networks. The broader small-move law passed 960 out of 960 registered checks using extrapolated measurements, and the out-and-back law passed all 36 checks. From the mechanism, I constructed updates that suppress the leading wear at the same evaluation cost as the comparison method. I also demonstrated recovery in a worn network while restoring its training outputs after each pair of target changes.</p>
+          <p>What makes this interesting to me is that understanding the mechanism gives us a way to design the learning rule around what it leaves behind. But some of that history can also help performance on the next task, so removing wear doesn’t automatically give the best result either.</p>
+          <p>This is a theory of a particular mechanism within continual learning, and the experiments so far use small fully connected networks on MNIST. It doesn’t yet establish retention of old tasks or solve continual learning at scale. I want to find out how far the framework extends, especially to adaptive optimisers such as Adam and to larger training settings, where being able to predict what learning does to future learning would become much more useful.</p>
+          <p><a href="https://github.com/meta-lucky-builds/learner-geometry" target="_blank" rel="noopener">learner-geometry on GitHub &#8599;</a></p>
+        </div>
+      </section>
+
 
       <section class="metrics" aria-labelledby="metrics-title">
         <p class="section-label" id="metrics-title">By the numbers</p>
         <dl class="metrics__grid">
-          <div class="metrics__item"><dt>1,600</dt><dd>paired robot-policy episodes in one benchmark</dd></div>
+          <div class="metrics__item"><dt>960/960</dt><dd>registered checks of one closed-form learning law on MNIST networks</dd></div>
           <div class="metrics__item"><dt>65</dt><dd>attacks I logged against my own claim checker</dd></div>
           <div class="metrics__item"><dt>9 of 14</dt><dd>of my own hypotheses killed by criteria I set in advance</dd></div>
           <div class="metrics__item"><dt>171</dt><dd>physics questions I asked while teaching myself</dd></div>
@@ -108,10 +128,10 @@
         <p class="section-label">How it connects</p>
         <div class="connect__body">
           <h2 class="why__title" id="connect-title">How the projects connect</h2>
-          <p class="connect__intro">The same few questions run through all fourteen: what a network really keeps, whether a result is real, and what happens when a model&rsquo;s world changes. Hover a project to see what it links to, and click it to jump to the project.</p>
+          <p class="connect__intro">The same few questions run through all fifteen: what a network really keeps, whether a result is real, and what happens when a model&rsquo;s world changes. Hover a project to see what it links to, and click it to jump to the project.</p>
 
           <div class="connect__map-wrap">
-            <svg class="connect__map" id="connect-map" viewBox="0 0 960 440" role="img" aria-label="Map of the fourteen repositories in four threads, with lines where a result in one connects to another."></svg>
+            <svg class="connect__map" id="connect-map" viewBox="0 0 960 440" role="img" aria-label="Map of the fifteen repositories in four threads, with lines where a result in one connects to another."></svg>
           </div>
           <p class="connect__legend"><span class="connect__key connect__key--solid"></span>a link that shows in the results <span class="connect__key connect__key--dashed"></span>the next experiment</p>
 
@@ -132,6 +152,7 @@
         <div class="why__body">
           <h2 class="why__title" id="landed-title">Some of what I found, others found independently around the same time</h2>
           <ul class="landed__list">
+            <li><strong>Loops of targets leave a trace in the weights.</strong> <a href="https://arxiv.org/abs/2610.07253" target="_blank" rel="noopener">Sinha &amp; Druga</a> (October 2026) published this first for minimum-norm transport: a closed loop of target outputs moves the parameters in proportion to the loop&rsquo;s area. In learner-geometry I extend it to other learning rules and to loss of trainability.</li>
             <li><strong>Turning a model's thinking off explains most of a famous weight-edit gain.</strong> <a href="https://carlostoledo.co/reports/weight-space-programming.html" target="_blank" rel="noopener">An independent audit</a> got there a day before my run. I added GSM8K, the remaining 12.2-point gain, and a layer-overlap measure.</li>
             <li><strong>Forgetting is mostly lost access, not erasure.</strong> <a href="https://arxiv.org/abs/2606.06032" target="_blank" rel="noopener">A June 2026 paper</a> found the same on ResNet-18 and CIFAR-100: accuracy fell to 0% while a linear probe kept about 76%. It has no never-trained-task control, the check where my probe readings shrank from 0.59 to 0.04.</li>
             <li><strong>A memory probe needs a baseline.</strong> <a href="https://arxiv.org/abs/2610.22655" target="_blank" rel="noopener">A 15 October paper</a> argues that probe accuracy alone is too permissive, the same point behind my never-trained-task control.</li>

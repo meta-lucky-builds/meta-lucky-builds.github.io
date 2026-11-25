@@ -13,6 +13,7 @@
 
   // Repo -> threads, and where its node sits on the map.
   const NODES = {
+    'learner-geometry': { t: ['forgetting'], x: 330, y: 55, label: 'learner-geometry' },
     'how-networks-forget': { t: ['forgetting'], x: 210, y: 115, label: 'how-networks-forget' },
     'continual-learning-experiments': { t: ['forgetting'], x: 120, y: 185, label: 'continual-learning' },
     'sleep': { t: ['forgetting'], x: 250, y: 235, label: 'sleep' },
@@ -39,6 +40,7 @@
     [H, PR, '2'], [PR, WS, '2'], [WA, VR, '2'], [HP, PR, '2'], [HP, H, '2'],
     [H, AH, '3'], [PR, AH, '3'], [WS, AH, '3'], [VR, AH, '3'], [FP, AH, '3'],
     [FP, VR, '4'], [FP, SO, '4'],
+    ['learner-geometry', CL, 'lg'], ['learner-geometry', H, 'lg'], ['learner-geometry', VR, 'lg'],
     [H, SL, 'next', true], [TR, SO, 'next', true], [PR, SL, 'next', true]
   ];
   const FINDING_NODES = {

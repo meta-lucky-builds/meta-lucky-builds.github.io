@@ -1705,3 +1705,28 @@ html.is-ready .project__link {
     transform: none;
   }
 }
+
+/* ---------- Standout numbers ---------- */
+
+.standout__numbers {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.standout__numbers li {
+  max-width: 40rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--sage);
+}
+
+.standout__numbers strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: hsl(48 62% 76%);
+  margin-right: 0.35rem;
+}
